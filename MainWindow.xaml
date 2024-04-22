@@ -6,27 +6,46 @@
         xmlns:local="clr-namespace:QuickServe"
         mc:Ignorable="d"
         Title="Kiszolgálói nézet" Height="450" Width="800">
-    <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Beállítások">
-                    <MenuItem Header="Asztalok" />
-                    <MenuItem Header="Rendelésfogadás" >
-                        <RadioButton x:Name="A" GroupName="RF" Content="Aktív"/>
-                        <RadioButton x:Name="IA" GroupName="RF" Content="Inaktív"/>
-                    </MenuItem>
-                    <MenuItem Header="Adatbázisteszt" />
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Background="#FF6D6D6D">
+            <MenuItem Header="Beállítások">
+                <MenuItem Header="Asztalok" />
+                <MenuItem Header="Rendelések fogadása" IsCheckable="True"/>
+                <MenuItem Header="Adatbázisteszt" />
+            </MenuItem>
+            <MenuItem Header="Exportálás">
+                <MenuItem Header="Minden adat exportálása" />
+                <MenuItem Header="Rendelések exportálása" />
+                <MenuItem Header="Biztonsági mentések">
+                    <MenuItem Header="Naponta" IsCheckable="True"/>
+                    <MenuItem Header="Hetente" IsCheckable="True"/>
+                    <MenuItem Header="Havonta" IsCheckable="True"/>
                 </MenuItem>
-                <MenuItem Header="_Edit">
-                    <MenuItem Header="_Cut" />
-                    <MenuItem Header="_Copy" />
-                    <MenuItem Header="_Paste" />
-                </MenuItem>
-                <MenuItem Header="Súgó">
-                    <MenuItem Header="Dokumentáció" />
-                    <MenuItem Header="Elérhetőség" />
-                </MenuItem>
-            </Menu>
-        </DockPanel>
-    </Grid>
+            </MenuItem>
+            <MenuItem Header="Súgó">
+                <MenuItem Header="Dokumentáció" />
+                <MenuItem Header="Elérhetőség" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50px"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="1" Grid.Row="0" Content="Elkészült rendelések" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#FF6D6D6D" FontFamily="Bahnschrift SemiBold"/>
+            <Label Grid.Column="0" Grid.Row="0" Content="Folyamatban" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#FF6D6D6D" FontFamily="Bahnschrift SemiBold"/>
+            <Label Grid.Column="2" Grid.Row="0" Content="Kiszállított" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#FF6D6D6D" FontFamily="Bahnschrift SemiBold"/>
+            <Rectangle Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"  Panel.ZIndex="-2" Stroke="#FFA1C398" StrokeThickness="3" StrokeDashArray="1"/>
+            <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"  Panel.ZIndex="-1" Stroke="#FFA1C398" StrokeThickness="3"/>
+            <Rectangle Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"  Panel.ZIndex="-2" Stroke="#FFA1C398" StrokeThickness="3" StrokeDashArray="5"/>
+        </Grid>
+    </DockPanel>
+
+
 </Window>
