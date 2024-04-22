@@ -1,0 +1,32 @@
+﻿<Window x:Class="QuickServe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuickServe"
+        mc:Ignorable="d"
+        Title="Kiszolgálói nézet" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Beállítások">
+                    <MenuItem Header="Asztalok" />
+                    <MenuItem Header="Rendelésfogadás" >
+                        <RadioButton x:Name="A" GroupName="RF" Content="Aktív"/>
+                        <RadioButton x:Name="IA" GroupName="RF" Content="Inaktív"/>
+                    </MenuItem>
+                    <MenuItem Header="Adatbázisteszt" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Cut" />
+                    <MenuItem Header="_Copy" />
+                    <MenuItem Header="_Paste" />
+                </MenuItem>
+                <MenuItem Header="Súgó">
+                    <MenuItem Header="Dokumentáció" />
+                    <MenuItem Header="Elérhetőség" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+    </Grid>
+</Window>

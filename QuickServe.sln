@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickServe", "QuickServe.csproj", "{B8064E03-B6E5-4EFA-9F4D-B3765AE45FC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8064E03-B6E5-4EFA-9F4D-B3765AE45FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8064E03-B6E5-4EFA-9F4D-B3765AE45FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8064E03-B6E5-4EFA-9F4D-B3765AE45FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8064E03-B6E5-4EFA-9F4D-B3765AE45FC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94595AD9-D725-406E-AFCC-E0735A810589}
+	EndGlobalSection
+EndGlobal
