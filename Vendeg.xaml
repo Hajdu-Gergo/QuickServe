@@ -79,7 +79,7 @@
                     <Button Content="Rendelés" Grid.Column="2" Grid.Row="2" Margin="0,0,10,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
                     <Rectangle Margin="30,5,20,30" Fill="#FFA1C398" Grid.Column="0" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
                     <Rectangle Margin="20,5,20,30" Fill="#FFA1C398" Grid.Column="1" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
-                    <Rectangle Margi n="20,5,30,30" Fill="#FFA1C398" Grid.Column="2" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
+                    <Rectangle Margin="20,5,30,30" Fill="#FFA1C398" Grid.Column="2" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
                     <Image HorizontalAlignment="Center" Height="163" VerticalAlignment="Top" Width="160" Grid.Column="1" Source="Hamburger.png" Margin="0,22,0,0" Grid.RowSpan="2"/>
                     <Image HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="160" Source="/Hamburger.png" Margin="25,18,0,0"/>
                     <Image HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="160" Source="/Hamburger.png" Margin="15,18,0,0" Grid.Column="2"/>
