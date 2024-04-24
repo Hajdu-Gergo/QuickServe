@@ -77,9 +77,9 @@
                     <Button Content="Rendelés" Grid.Column="0" Grid.Row="2" Margin="10,0,0,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
                     <Button Content="Rendelés" Grid.Column="1" Grid.Row="2" Margin="0,0,0,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
                     <Button Content="Rendelés" Grid.Column="2" Grid.Row="2" Margin="0,0,10,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
-                    <Rectangle Margin="30,5,20,30" Fill="#FFA1C398" Grid.Column="0" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="130"/>
-                    <Rectangle Margin="20,5,20,30" Fill="#FFA1C398" Grid.Column="1" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="130"/>
-                    <Rectangle Margin="20,5,30,30" Fill="#FFA1C398" Grid.Column="2" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="130"/>
+                    <Rectangle Margin="30,5,20,30" Fill="#FFA1C398" Grid.Column="0" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
+                    <Rectangle Margin="20,5,20,30" Fill="#FFA1C398" Grid.Column="1" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
+                    <Rectangle Margin="20,5,30,30" Fill="#FFA1C398" Grid.Column="2" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
                 </Grid>
             </ScrollViewer>
         </Grid>
