@@ -21,7 +21,7 @@ namespace QuickServe
             InitializeComponent();
         }
 
-        private void VendegMegnyit(object sender, RoutedEventArgs e)
+        private void VendegMegnyit(object sender, RoutedEventArgs e)//Ablakváltás
         {
             var Vendg = new Vendeg();
             Vendg.Show();

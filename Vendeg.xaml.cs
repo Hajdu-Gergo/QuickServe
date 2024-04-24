@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace QuickServe
 {
-    /// <summary>
-    /// Interaction logic for Vendeg.xaml
-    /// </summary>
     public partial class Vendeg : Window
     {
         public Vendeg()
