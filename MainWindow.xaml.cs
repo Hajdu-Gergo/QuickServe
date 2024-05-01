@@ -24,8 +24,16 @@ namespace QuickServe
         private void VendegMegnyit(object sender, RoutedEventArgs e)//Ablakváltás
         {
             var Vendg = new Vendeg();
+            this.Hide();
             Vendg.Show();
-            this.Close();
+            
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
         }
     }
 }
