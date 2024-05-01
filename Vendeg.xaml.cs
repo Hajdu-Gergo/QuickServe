@@ -20,5 +20,54 @@ namespace QuickServe
         {
             InitializeComponent();
         }
+
+        private void KiszolgaloMegnyit(object sender, RoutedEventArgs e)
+        {
+            var main = new MainWindow();
+            this.Hide();
+            main.Show();                   
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
+        private void btUjrendeles1(object sender, RoutedEventArgs e)
+        {
+            lbRendelesAdatai.Items.Add(lEtel1.Content);
+        }
+
+        private void btUjrendeles2(object sender, RoutedEventArgs e)
+        {
+            lbRendelesAdatai.Items.Add(lEtel2.Content);
+        }
+
+        private void btUjrendeles3(object sender, RoutedEventArgs e)
+        {
+            lbRendelesAdatai.Items.Add(lEtel3.Content);
+        }
+
+        private void btRendelesLead(object sender, RoutedEventArgs e)
+        {
+            String rendelesString = "";
+            foreach (var item in lbRendelesAdatai.Items)
+            {
+                rendelesString += $"{item};";
+            }
+
+            if (rendelesString == "")
+            {
+                MessageBox.Show("Nincs kiválasztott item", "Rendelés", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(rendelesString, "Rendelés", MessageBoxButton.OK, MessageBoxImage.Information); 
+            }
+            lbRendelesAdatai.Items.Clear();
+
+        }
     }
 }
