@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Gyros.png" />
     <None Remove="Hamburger.png" />
+    <None Remove="Hot Dog.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,7 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Gyros.png" />
     <Resource Include="Hamburger.png" />
+    <Resource Include="Hot Dog.png" />
   </ItemGroup>
 
 </Project>

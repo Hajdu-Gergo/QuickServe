@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:QuickServe"
         mc:Ignorable="d"
         Title="Vendeg" ResizeMode="NoResize" Height="450" Width="800">
+    
+    <!--Kinézethez szükséges blokk:-->
     <Window.Resources>
         <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
                  TargetType="Button">
@@ -26,15 +28,18 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-    </Window.Resources>
+    </Window.Resources><!--Ez a rész eltünteti a hover effektet a gombokról-->
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="#FF6D6D6D">
+           <!--Beállítások menü-->
             <MenuItem Header="Beállítások">
                 <MenuItem Header="Asztalok" />
                 <MenuItem Header="Rendelések fogadása" IsCheckable="True"/>
                 <MenuItem Header="Adatbázisteszt" />
             </MenuItem>
-
+            
+            <!--Exportálás menü-->
             <MenuItem Header="Exportálás">
                 <MenuItem Header="Minden adat exportálása" />
                 <MenuItem Header="Rendelések exportálása" />
@@ -44,6 +49,8 @@
                     <MenuItem Header="Havonta" IsCheckable="True"/>
                 </MenuItem>
             </MenuItem>
+            
+            <!--Súgó menü-->
             <MenuItem Header="Súgó">
                 <MenuItem Header="Dokumentáció" />
                 <MenuItem Header="Elérhetőség" />
@@ -59,6 +66,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <!--Termékek blokk-->
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -71,51 +79,59 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+
+                    <!--Első termék (Hamburger)-->
                     <Rectangle Margin="20,20,10,20" Fill="#FFF1F1F1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" RadiusX="30" RadiusY="30" Panel.ZIndex="-2"/>
-                    <Rectangle Margin="10,20,10,20" Fill="#FFF1F1F1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" RadiusX="30" RadiusY="30" Panel.ZIndex="-2"/>
-                    <Rectangle Margin="10,20,20,20" Fill="#FFF1F1F1" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" RadiusX="30" RadiusY="30" Panel.ZIndex="-2"/>
-                    <Button Content="Rendelés" Grid.Column="0" Grid.Row="2" Margin="10,0,0,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
-                    <Button Content="Rendelés" Grid.Column="1" Grid.Row="2" Margin="0,0,0,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
-                    <Button Content="Rendelés" Grid.Column="2" Grid.Row="2" Margin="0,0,10,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
-                    <Rectangle Margin="30,5,20,30" Fill="#FFA1C398" Grid.Column="0" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
-                    <Rectangle Margin="20,5,20,30" Fill="#FFA1C398" Grid.Column="1" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
-                    <Rectangle Margin="20,5,30,30" Fill="#FFA1C398" Grid.Column="2" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
-                    <Image HorizontalAlignment="Center" Height="163" VerticalAlignment="Top" Width="160" Grid.Column="1" Source="Hamburger.png" Margin="0,22,0,0" Grid.RowSpan="2"/>
-                    <Image HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="160" Source="/Hamburger.png" Margin="25,18,0,0"/>
-                    <Image HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="160" Source="/Hamburger.png" Margin="15,18,0,0" Grid.Column="2"/>
-                    <Label Content="Hamburger" HorizontalAlignment="Left" Margin="46,178,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.RowSpan="2"/>
-                    <Label Content="Hamburger" HorizontalAlignment="Center" Margin="0,178,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.RowSpan="2" Grid.Column="1"/>
-                    <Label Content="Hamburger" HorizontalAlignment="Left" Margin="36,178,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.RowSpan="2" Grid.Column="2"/>
+                    <Image HorizontalAlignment="Center" Height="163" VerticalAlignment="Top" Width="160" Grid.Column="1" Source="/Hot Dog.png" Margin="0,22,0,0" Grid.RowSpan="2"/>
+                    <Label Name="lEtel1" Content="Hamburger" HorizontalAlignment="Left" Margin="46,178,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.RowSpan="2"/>
                     <TextBlock HorizontalAlignment="Left" Margin="46,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" TextAlignment="Justify"><Run Text="Mézes-mustáros ízek, ropogós zsemle"/><Run Language="hu-hu" Text=" és a"/><Run Text=" tökéletes hús."/></TextBlock>
-                    <TextBlock HorizontalAlignment="Center" Margin="0,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" TextAlignment="Justify" Grid.Column="1"><Run Text="Mézes-mustáros ízek, ropogós zsemle"/><Run Language="hu-hu" Text=" és a"/><Run Text=" tökéletes hús."/></TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Margin="36,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" TextAlignment="Justify" Grid.Column="2"><Run Text="Mézes-mustáros ízek, ropogós zsemle"/><Run Language="hu-hu" Text=" és a"/><Run Text=" tökéletes hús."/></TextBlock>
+                    <Button Name="btHamburger" Content="Hozzáadás" Grid.Column="0" Grid.Row="2" Margin="10,0,0,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
+                    <Rectangle Margin="30,5,20,30" Fill="#FFA1C398" Grid.Column="0" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
+                    <Label Name="lbHamburgerAr" Content="1999Ft" HorizontalAlignment="Left" Margin="134,66,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Row="1"/>
+
+                    <!--Második termék (Hotdog)-->
+                    <Rectangle Margin="10,20,10,20" Fill="#FFF1F1F1" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" RadiusX="30" RadiusY="30" Panel.ZIndex="-2"/>
+                    <Image HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="160" Source="/Hamburger.png" Margin="25,18,0,0"/>
+                    <Label Name="lEtel2" Content="Hotdog" HorizontalAlignment="Center" Margin="0,178,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.RowSpan="2" Grid.Column="1"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" TextAlignment="Justify" Grid.Column="1"><Run Text="Frissen sült"/><Run Text=" "/><Run Text=" hot-dog "/><Run Text="virsli"/><Run Text=", pikáns mustár"/><Run Language="hu-hu" Text=" és a"/><Run Text=" puha "/><Run Text="kifli"/><Run Text="."/></TextBlock>
+                    <Button Name="btHotDog" Content="Hozzáadás" Grid.Column="1" Grid.Row="2" Margin="0,0,0,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
+                    <Rectangle Margin="20,5,20,30" Fill="#FFA1C398" Grid.Column="1" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
+                    <Label Name="lbHotdogAr" Content="1099Ft" HorizontalAlignment="Left" Margin="134,66,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1"/>
+
+                    <!--Harmadik termék (Gyros)-->
+                    <Rectangle Margin="10,20,20,20" Fill="#FFF1F1F1" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" RadiusX="30" RadiusY="30" Panel.ZIndex="-2"/>
+                    <Image HorizontalAlignment="Left" Height="164" VerticalAlignment="Top" Width="160" Source="/Gyros.png" Margin="15,18,0,0" Grid.Column="2"/>
+                    <Label Name="lEtel3" Content="Gyros" HorizontalAlignment="Center" Margin="0,178,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Grid.RowSpan="2" Grid.Column="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="36,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" TextAlignment="Justify" Grid.Column="2"><Run Text="Ízletes fűszerek, "/><Run Language="hu-hu" Text="házi"/><Run Text=" pitában, friss"/><Run Language="hu-hu" Text=", hazai "/><Run Text="zöldségek"/><Run Language="hu-hu" Text="kel"/><Run Text="."/></TextBlock>
+                    <Button Name="btGyros" Content="Hozzáadás" Grid.Column="2" Grid.Row="2" Margin="0,0,10,30" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="#FF6D6D6D" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}"/>
+                    <Rectangle Margin="20,5,30,30" Fill="#FFA1C398" Grid.Column="2" Grid.Row="2" Panel.ZIndex="-1" RadiusX="30" RadiusY="30"/>
+                    <Label Name="lbGyrosAr" Content="1499Ft" HorizontalAlignment="Left" Margin="124,66,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Row="1" Grid.Column="2"/>
 
                 </Grid>
-
             </ScrollViewer>
-            
+
             <!--Rendelésösszesítő blokk:-->
             <Rectangle Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Grid.RowSpan="3"  Fill="#FFF1F1F1" Margin="0,0,0,20" RadiusX="30" RadiusY="30" VerticalAlignment="Bottom" Width="180" Height="380"/>
             <Label Grid.Column="1" Grid.Row="0" Content="Rendelés Adatai" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="15" Foreground="#FF608855"/>
-    
-            <ListBox Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="30,5,30,107" BorderBrush="{x:Null}" Background="{x:Null}"/>
+            <ListBox x:Name="lbRendelesAdatai" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="30,5,30,107" BorderBrush="{x:Null}" Background="{x:Null}"/>
             <Label Grid.Column="1" Content="Végösszeg: " HorizontalAlignment="Left" Margin="30,270,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <Rectangle HorizontalAlignment="Center" Height="30" Margin="0,301,0,0" VerticalAlignment="Top" Width="140" Fill="#FFA1C398" RadiusX="15" RadiusY="15" Grid.Column="1" Grid.Row="1"/>
-            <Label Grid.Column="1" Content="0 Ft" HorizontalAlignment="Left" Margin="140,270,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <Rectangle HorizontalAlignment="Center" Height="1" Margin="0,270,0,0" Stroke="Black" VerticalAlignment="Top" Width="123" Grid.Column="1" Grid.Row="1"/>
-            
+            <!--Végösszeg kiírása-->
+            <Label Name="lbVegosszeg" Grid.Column="1" Content="0 Ft" HorizontalAlignment="Left" Margin="140,270,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <!--Megrendelés gomb-->
+            <Button Content="Rendelés leadása" Name="btMegrendel" Click="btRendelesLead" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top" Width="140" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+
             <!--Felső gombcsoport gombjai:-->
             <Button Content="Gyorsétel" Name="btGyorsetel" HorizontalAlignment="Left" Margin="21,16,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontWeight="Bold"/>
             <Button Content="Készétel" Name="btKeszetel" HorizontalAlignment="Left" Margin="126,16,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" />
             <Button Content="Menük" Name="btMenuk" HorizontalAlignment="Left" Margin="231,16,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}"/>
-            <!--Az egyszerűség és idő hiánya miatt csak a Gyorsétel rész van, a többi csak placeholder
+            <!--Az egyszerűség és idő hiánya miatt csak a Gyorsétel rész van, a többi csak placeholder.
             A következő sor a gombok hátterét tartalmazza (ha elkészül a készétel és menük rész ezeknek kell megváltoztatni a színét):-->
             <Rectangle HorizontalAlignment="Left" Height="30" Margin="21,16,0,0" VerticalAlignment="Center" Width="100" Fill="#FFA1C398" RadiusX="15" RadiusY="15" Panel.ZIndex="-1"/>
             <Rectangle HorizontalAlignment="Left" Height="30" Margin="126,16,0,0" VerticalAlignment="Center" Width="100" Fill="#FFF1F1F1" RadiusX="15" RadiusY="15" Panel.ZIndex="-1"/>
             <Rectangle HorizontalAlignment="Left" Height="30" Margin="231,16,0,0" VerticalAlignment="Center" Width="100" Fill="#FFF1F1F1" RadiusX="15" RadiusY="15" Panel.ZIndex="-1"/>
 
-            <!--Megrendelés gomb-->
-            <Button Content="Rendelés leadása" Name="btMegrendel" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top" Width="140" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
         </Grid>
 
     </DockPanel>
