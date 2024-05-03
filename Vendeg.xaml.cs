@@ -12,6 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+/*
+    Termékek:
+    Név:          Click:          Hozzá tartozó ár:
+    btHamburger - btUjrendeles1 - lbHamburgerAr
+    btHotdog    - btUjrendeles2 - lbHotdogAr
+    btGyros     - btUjrendeles3 - lbGyrosAr
+    
+    Rendelés leadása:
+    btMegrendel - btRendelesLead
+    lbRendelesAdatai - Rendelés adatai listbox
+
+    Felső menü:
+    - Beállítások
+        - Adatbázisteszt
+    - Exportálás  (Ez lehet felesleges menüpont)
+    - Súgó
+        - Dokumentáció
+        - Elérhetőség
+
+
+*/
+
 namespace QuickServe
 {
     public partial class Vendeg : Window

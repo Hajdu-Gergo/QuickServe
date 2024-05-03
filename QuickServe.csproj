@@ -9,11 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Gyros.png" />
     <None Remove="Hamburger.png" />
+    <None Remove="Hot Dog.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="3.0.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Gyros.png" />
     <Resource Include="Hamburger.png" />
+    <Resource Include="Hot Dog.png" />
   </ItemGroup>
 
 </Project>
