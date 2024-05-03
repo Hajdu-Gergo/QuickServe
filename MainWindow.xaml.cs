@@ -9,11 +9,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+/*
+    ListBoxok:
+    lbFolyamatban  - Folyamatban lévő rendelések
+    lbElkeszult    - Elkészült rendelések
+    lbKiszallitott - Kiszállított rendelések
+
+    Felső menü:
+    - Beállítások
+        - Asztalok
+        - Rendelések fogadása
+        - Adatbázisteszt
+    - Vendég nézet
+    - Exportálás  (Ez lehet felesleges menüpont)
+        - Minden adat exportálása
+        - Rendelések exportálása
+        - Biztonsági mentések
+            - Naponta
+            - Hetente
+            - Havonta
+    - Súgó
+        - Dokumentáció
+        - Elérhetőség
+*/
+
 namespace QuickServe
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()

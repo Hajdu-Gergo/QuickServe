@@ -34,22 +34,12 @@
         <Menu DockPanel.Dock="Top" Background="#FF6D6D6D">
            <!--Beállítások menü-->
             <MenuItem Header="Beállítások">
-                <MenuItem Header="Asztalok" />
-                <MenuItem Header="Rendelések fogadása" IsCheckable="True"/>
                 <MenuItem Header="Adatbázisteszt" />
             </MenuItem>
             
             <!--Exportálás menü-->
-            <MenuItem Header="Exportálás">
-                <MenuItem Header="Minden adat exportálása" />
-                <MenuItem Header="Rendelések exportálása" />
-                <MenuItem Header="Biztonsági mentések">
-                    <MenuItem Header="Naponta" IsCheckable="True"/>
-                    <MenuItem Header="Hetente" IsCheckable="True"/>
-                    <MenuItem Header="Havonta" IsCheckable="True"/>
-                </MenuItem>
-            </MenuItem>
-            
+            <MenuItem Header="Exportálás"/>
+
             <!--Súgó menü-->
             <MenuItem Header="Súgó">
                 <MenuItem Header="Dokumentáció" />
