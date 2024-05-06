@@ -13,6 +13,7 @@ using Google.Protobuf;
 //MySQL adatbázis kapcsolathoz package kell (MySQL.Data)
 using MySql.Data;
 
+
 /*
     ListBoxok:
     lbFolyamatban  - Folyamatban lévő rendelések
@@ -41,11 +42,11 @@ namespace QuickServe
 {
     public partial class MainWindow : Window
     {
-        
+        const string connect = "server=api.uniassist.hu;uid=QuickServe;pwd=Csütörtök8;database=QuickServe";
         public MainWindow()
         {
             InitializeComponent();
-            frissit();
+            frissit();//Adatok betöltése a Listboxokba
         }
 
         private void VendegMegnyit(object sender, RoutedEventArgs e)//Ablakváltás
@@ -56,7 +57,7 @@ namespace QuickServe
             
         }
 
-        protected override void OnClosed(EventArgs e)
+        protected override void OnClosed(EventArgs e)//Leállítás
         {
             base.OnClosed(e);
 
@@ -65,15 +66,35 @@ namespace QuickServe
 
         private bool frissit()
         {
+            /*
+            Adatok lekérdezése az adatbázisból és ezeknek a ListBoxokba töltése.
+            Ennek érdekében csatlakozik az adatbázishoz.
+
+            Alapvetően 3 listbox van, ahol a rendeléseket tároljuk:
+            - lbFolyamatban
+            - lbElkeszult
+            - lbKiszallitott
+
+            Az adatbázisban a rendeléseknek 3 állapota lehet:
+            - 1: Folyamatban
+            - 2: Elkészült
+            - 3: Kiszállított
+
+            Ezt figyelembe véve osztja szét az adatokat a ListBoxok között.
+            
+            Először lekérdezi az adatokat dátum szerint rendezve, majd a MySQLDataReader segítségével egy elágazás eldönti, hogy mely részbe kell kerülniük.
+            Ha a lekérdezés sikeres, akkor a ListBoxok előző értékeit törli és újra feltölti az új adatokkal.
+            Egyébként hibaüzenetet dob.
+            Tesztelési célból a metódus visszaad egy bool típusú értéket is.
+
+             */
             string lekeres= "SELECT * FROM Rendeles order by v_Datum";
             
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string myConnectionString;
-            myConnectionString = "server=api.uniassist.hu;uid=QuickServe;" + "pwd=Csütörtök8;database=QuickServe";
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
-                conn.ConnectionString = myConnectionString;
+                conn.ConnectionString = connect;
                 conn.Open();
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(lekeres, conn);
                 MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
@@ -101,6 +122,10 @@ namespace QuickServe
 
         private void Adatbazisteszt(object sender, RoutedEventArgs e)
         {
+            /*
+            Az adatbázikapcsolat tesztelése a korábban megírt frissít() segítségével. 
+            Ha a frissít() visszaadott értéke igaz, akkor az adatbázis kapcsolat megfelelő és erről tájékoztatja a felhasználót, egyébként hibaüzenetet dob.
+             */ 
             if (frissit())
             {
                 MessageBox.Show("Az adatbázis kapcsolat megfelelő, adatok frissítve", "Adatbázis teszt", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -113,6 +138,16 @@ namespace QuickServe
 
         private void Kijelol(object sender, SelectionChangedEventArgs e)
         {
+            /*
+            Módosítás és törlés érdekében csatlakozik az adatbázishoz
+            
+            Ez a függvény teszi lehetővé, hogy a rendelések állapotát változtassuk a ListBoxokban.
+            Ha a ListBoxban nincs kijelölt elem, akkor nem történik semmi.
+            Ha van kijelölt elem, akkor annak az állapotát fogja növelni. Azaz, ha a rendelés folyamatban van, akkor elkészültté teszi, ha elkészült, akkor kiszállítottá.
+            Ha a rendelés kiszállított, akkor törli a rendelést az adatbázisból kattintás hatására.
+
+            Megvalósítja a rendelések állapotának növelését (UPDATE) és törlését (DELETE).
+             */
             if(((ListBox)sender).SelectedItem == null) return;
             string ideigl=((ListBox)sender).SelectedItem.ToString();
             int id = int.Parse(ideigl[0].ToString());
@@ -120,16 +155,14 @@ namespace QuickServe
             string parancs = "";
 
             MySql.Data.MySqlClient.MySqlConnection conn;
-            string connect;
-            connect = "server=api.uniassist.hu;uid=QuickServe;pwd=Csütörtök8;database=QuickServe";
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = connect;
                 conn.Open();
-                if (ideigl[5] == '3')
+                if (ideigl[4]=='3'|| ideigl[5] == '3')
                 {
-                    parancs= $"DELETE FROM Rendeles WHERE v_ID={id}";
+                    parancs= $"DELETE FROM Rendeles WHERE r_ID={id}";
                 }
                 else
                 {
@@ -146,6 +179,44 @@ namespace QuickServe
                 MessageBox.Show(ex.Message);
             }
             frissit();
+        }
+
+        private void IndexReset(object sender, RoutedEventArgs e)
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = connect;
+                conn.Open();
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand("Alter table Rendeles Auto_Increment=1", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Reset(object sender, RoutedEventArgs e)
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = connect;
+                conn.Open();
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand("delete from Rendeles", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 

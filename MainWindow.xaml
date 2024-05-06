@@ -10,23 +10,23 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="#FF6D6D6D">
             <MenuItem Header="Beállítások">
-                <MenuItem Header="Asztalok" />
-                <MenuItem Header="Rendelések fogadása" IsCheckable="True"/>
+                <MenuItem Header="Reset" Click="Reset"/>
+                <MenuItem Header="Rendelésszám reset" Click="IndexReset"/>
                 <MenuItem Header="Adatbázisteszt" Click="Adatbazisteszt"/>
             </MenuItem>
             <MenuItem Header="Vendég nézet" Click="VendegMegnyit"/>
             <MenuItem Header="Exportálás">
-                <MenuItem Header="Minden adat exportálása" />
-                <MenuItem Header="Rendelések exportálása" />
-                <MenuItem Header="Biztonsági mentések">
+                <MenuItem Header="Minden adat exportálása" IsEnabled="False"/>
+                <MenuItem Header="Rendelések exportálása" IsEnabled="False"/>
+                <MenuItem Header="Biztonsági mentések" IsEnabled="False">
                     <MenuItem Header="Naponta" IsCheckable="True"/>
                     <MenuItem Header="Hetente" IsCheckable="True"/>
                     <MenuItem Header="Havonta" IsCheckable="True"/>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Súgó">
-                <MenuItem Header="Dokumentáció" />
-                <MenuItem Header="Elérhetőség" />
+                <MenuItem Header="Dokumentáció" IsEnabled="False"/>
+                <MenuItem Header="Elérhetőség" IsEnabled="False"/>
             </MenuItem>
         </Menu>
         <Grid>
