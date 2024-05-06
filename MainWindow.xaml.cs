@@ -97,9 +97,9 @@ namespace QuickServe
                 lbKiszallitott.Items.Clear();
                 while (rdr.Read())
                 {
-                    if(rdr[5].ToString()=="1") lbFolyamatban.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString()+" - "+ rdr[3].ToString());
-                    else if (rdr[5].ToString() == "2") lbElkeszult.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString() + " - " + rdr[3].ToString());
-                    else if (rdr[5].ToString() == "3") lbKiszallitott.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString() + " - " + rdr[3].ToString());
+                    if(rdr[5].ToString()=="1") lbFolyamatban.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString()+" - "+ rdr[3].ToString()+" Ft");
+                    else if (rdr[5].ToString() == "2") lbElkeszult.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString() + " - " + rdr[3].ToString() + " Ft");
+                    else if (rdr[5].ToString() == "3") lbKiszallitott.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString() + " - " + rdr[3].ToString() + " Ft");
                 }
                 conn.Close();
                 return true;
@@ -160,7 +160,6 @@ namespace QuickServe
             {
                 MessageBox.Show(ex.Message);
             }
-            MessageBox.Show(id.ToString());
             frissit();
         }
     }

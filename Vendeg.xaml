@@ -45,12 +45,12 @@
             </MenuItem>
             
             <!--Exportálás menü-->
-            <MenuItem Header="Exportálás" />
+            <MenuItem Header="Exportálás" Click="NemImplementáltFunkció" />
 
             <!--Súgó menü-->
             <MenuItem Header="Súgó">
-                <MenuItem Header="Dokumentáció" />
-                <MenuItem Header="Elérhetőség" />
+                <MenuItem Header="Dokumentáció" IsEnabled="False"/>
+                <MenuItem Header="Elérhetőség" IsEnabled="False" />
             </MenuItem>
         </Menu>
         <Grid>
@@ -121,8 +121,8 @@
             
             <!--Felső gombcsoport gombjai:-->
             <Button Content="Gyorsétel" Name="btGyorsetel" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontWeight="Bold"/>
-            <Button Content="Készétel" Name="btKeszetel" HorizontalAlignment="Left" Margin="126,10,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" />
-            <Button Content="Menük" Name="btMenuk" HorizontalAlignment="Left" Margin="231,10,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <Button Content="Készétel" Name="btKeszetel" Click="NemImplementáltFunkció" HorizontalAlignment="Left" Margin="126,10,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" />
+            <Button Content="Menük" Name="btMenuk" Click="NemImplementáltFunkció" HorizontalAlignment="Left" Margin="231,10,0,0" VerticalAlignment="Center" Width="100" Height="30" Background="{x:Null}" BorderBrush="{x:Null}"/>
             <!--Az egyszerűség és idő hiánya miatt csak a Gyorsétel rész van, a többi csak placeholder.
             A következő sor a gombok hátterét tartalmazza (ha elkészül a készétel és menük rész ezeknek kell megváltoztatni a színét):-->
             <Rectangle HorizontalAlignment="Left" Height="30" Margin="21,10,0,0" VerticalAlignment="Center" Width="100" Fill="#FFA1C398" RadiusX="15" RadiusY="15" Panel.ZIndex="-1"/>

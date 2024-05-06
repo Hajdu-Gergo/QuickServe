@@ -138,5 +138,10 @@ namespace QuickServe
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void NemImplementáltFunkció(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Ez a funkció jelenleg nem elérhető", "Nem implementált funkció", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
