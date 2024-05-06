@@ -106,6 +106,7 @@ namespace QuickServe
                     if(rdr[5].ToString()=="1") lbFolyamatban.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString()+" - "+ rdr[3].ToString()+" Ft");
                     else if (rdr[5].ToString() == "2") lbElkeszult.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString() + " - " + rdr[3].ToString() + " Ft");
                     else if (rdr[5].ToString() == "3") lbKiszallitott.Items.Add(rdr[0].ToString() + " - " + rdr[1].ToString() + " - " + rdr[2].ToString() + " - " + rdr[3].ToString() + " Ft");
+                    
                 }
                 conn.Close();
                 return true;
@@ -160,13 +161,13 @@ namespace QuickServe
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = connect;
                 conn.Open();
-                if (ideigl[4]=='3'|| ideigl[5] == '3')
+                if (ideigl[4].ToString()=="3"|| ideigl[5].ToString() == "3")
                 {
-                    parancs= $"DELETE FROM Rendeles WHERE r_ID={id}";
+                    parancs= $"DELETE FROM Rendeles WHERE r_ID={id};";
                 }
                 else
                 {
-                    parancs = $"UPDATE Rendeles SET v_Allapot=v_Allapot+1 WHERE r_ID={id}";
+                    parancs = $"UPDATE Rendeles SET v_Allapot=v_Allapot+1 WHERE r_ID={id}; DELETE From Rendeles where v_Allapot=4;";
                 }
 
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(parancs, conn);
