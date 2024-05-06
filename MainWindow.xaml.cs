@@ -12,21 +12,6 @@ using Google.Protobuf;
 
 //MySQL adatbázis kapcsolathoz package kell (MySQL.Data)
 using MySql.Data;
-/*
-MySql.Data.MySqlClient.MySqlConnection conn;
-string myConnectionString;
-myConnectionString = "server=api.uniassist.hu;uid=QuickServe;" + "pwd=Csütörtök8;database=QuickServe";
-try
-{
-    conn = new MySql.Data.MySqlClient.MySqlConnection();
-    conn.ConnectionString = myConnectionString;
-    conn.Open();
-    MessageBox.Show("Ok");
-}
-catch (MySql.Data.MySqlClient.MySqlException ex)
-{
-    MessageBox.Show(ex.Message);
-}*/
 
 /*
     ListBoxok:
