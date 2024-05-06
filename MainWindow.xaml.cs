@@ -183,6 +183,10 @@ namespace QuickServe
 
         private void IndexReset(object sender, RoutedEventArgs e)
         {
+            /*
+            IndexReset: Az adatbázisban az autóinkrementáló érték visszaállítása 1-re.
+            
+            */
             MySql.Data.MySqlClient.MySqlConnection conn;
             try
             {
@@ -202,6 +206,9 @@ namespace QuickServe
 
         private void Reset(object sender, RoutedEventArgs e)
         {
+            /*
+            Teljes Reset: Az adatbázisban az összes rendelés törlése.
+             */
             MySql.Data.MySqlClient.MySqlConnection conn;
             try
             {
