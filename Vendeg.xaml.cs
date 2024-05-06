@@ -41,6 +41,7 @@ namespace QuickServe
 {
     public partial class Vendeg : Window
     {
+        string rendelesSQL = "";
         public Vendeg()
         {
             InitializeComponent();
@@ -94,5 +95,9 @@ namespace QuickServe
             lbRendelesAdatai.Items.Clear();
 
         }
+        /*private void Rendeles(string nev, int ar)
+        {
+            if
+        }*/
     }
 }
