@@ -42,6 +42,8 @@ namespace QuickServe
     public partial class Vendeg : Window
     {
         string rendelesSQL = "";
+        int vegossz = 0;
+        int vendegID = 1;//jelenleg egyetlen vendeg ID-ja
         public Vendeg()
         {
             InitializeComponent();
@@ -63,17 +65,29 @@ namespace QuickServe
 
         private void btUjrendeles1(object sender, RoutedEventArgs e)
         {
-            lbRendelesAdatai.Items.Add(lEtel1.Content);
+            string? ar = lbHamburgerAr.Content.ToString();
+            lbRendelesAdatai.Items.Add(lEtel1.Content + " - " + lbHamburgerAr.Content);
+            vegossz+= int.Parse(ar.Substring(0,ar.Length-2));
+            lbVegosszeg.Content = vegossz + " Ft";
+            Rendeles(lEtel1.Content.ToString(), ar.Substring(0, ar.Length - 2));
         }
 
         private void btUjrendeles2(object sender, RoutedEventArgs e)
         {
-            lbRendelesAdatai.Items.Add(lEtel2.Content);
+            lbRendelesAdatai.Items.Add(lEtel2.Content+" - "+lbHotdogAr.Content);
+            string? ar = lbHotdogAr.Content.ToString();
+            vegossz += int.Parse(ar.Substring(0, ar.Length - 2));
+            lbVegosszeg.Content = vegossz + " Ft";
+            Rendeles(lEtel2.Content.ToString(), ar.Substring(0, ar.Length - 2));
         }
 
         private void btUjrendeles3(object sender, RoutedEventArgs e)
         {
-            lbRendelesAdatai.Items.Add(lEtel3.Content);
+            lbRendelesAdatai.Items.Add(lEtel3.Content + " - " + lbGyrosAr.Content);
+            string? ar = lbGyrosAr.Content.ToString();
+            vegossz += int.Parse(ar.Substring(0, ar.Length - 2));
+            lbVegosszeg.Content = vegossz + " Ft";
+            Rendeles(lEtel3.Content.ToString(), ar.Substring(0, ar.Length - 2));
         }
 
         private void btRendelesLead(object sender, RoutedEventArgs e)
@@ -90,14 +104,39 @@ namespace QuickServe
             }
             else
             {
-                MessageBox.Show(rendelesString, "Rendelés", MessageBoxButton.OK, MessageBoxImage.Information); 
+                MessageBox.Show("Rendelés leadva!\nA pincér hamarosan érkezik az ételével.", "Sikeres megrendendelés", MessageBoxButton.OK, MessageBoxImage.Information);
+                AdatbázisKapcsolat();
             }
             lbRendelesAdatai.Items.Clear();
+            rendelesSQL = "";
+            vegossz = 0;
+            lbVegosszeg.Content = vegossz + " Ft";
 
         }
-        /*private void Rendeles(string nev, int ar)
+        private void Rendeles(string nev, string arS)
         {
-            if
-        }*/
+            int ar= int.Parse(arS);
+            rendelesSQL+= $" INSERT INTO Rendeles (v_ID, v_Etel, v_Etelar, v_Allapot) VALUES (1,'{nev}', {ar}, 1);";
+        }
+
+        private void AdatbázisKapcsolat()
+        {
+            MySql.Data.MySqlClient.MySqlConnection conn;
+            string connect;
+            connect = "server=api.uniassist.hu;uid=QuickServe;pwd=Csütörtök8;database=QuickServe";
+            try
+            {
+                conn = new MySql.Data.MySqlClient.MySqlConnection();
+                conn.ConnectionString = connect;
+                conn.Open();
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(rendelesSQL, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

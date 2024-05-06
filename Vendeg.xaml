@@ -34,15 +34,18 @@
         <Menu DockPanel.Dock="Top" Background="#FF6D6D6D">
            <!--Beállítások menü-->
             <MenuItem Header="Beállítások">
-                <!--ComboBox Name="cbNyelv" Width="100" Height="30" Margin="0,0,0,0"-->
-                    <!--ComboBoxItem Content="Magyar"-->
-                    <!--ComboBoxItem Content="English"-->
-                <!--/ComboBox-->
-                <MenuItem Header="Adatbázisteszt" />
+                <MenuItem Header="Asztalbeállítás">
+                    <MenuItem Header="1. asztal" IsCheckable="True" IsChecked="True"/>
+                    <MenuItem Header="2. asztal" IsCheckable="True" IsEnabled="False"/>
+                    <MenuItem Header="3. asztal" IsCheckable="True" IsEnabled="False"/>
+                    <MenuItem Header="4. asztal" IsCheckable="True" IsEnabled="False"/>
+                </MenuItem>
+                <MenuItem Header="Felhasználóbeállítások" IsEnabled="False"/>
+                <MenuItem Header="Adatbázisteszt" IsEnabled="False"/>
             </MenuItem>
             
             <!--Exportálás menü-->
-            <MenuItem Header="Exportálás"/>
+            <MenuItem Header="Exportálás" />
 
             <!--Súgó menü-->
             <MenuItem Header="Súgó">
