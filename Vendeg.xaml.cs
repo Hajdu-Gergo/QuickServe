@@ -41,14 +41,15 @@ namespace QuickServe
 {
     public partial class Vendeg : Window
     {
-        string rendelesSQL = "";
-        int vegossz = 0;
-        int vendegID = 1;//jelenleg egyetlen vendeg ID-ja
+        string rendelesSQL = "";//Insert SQL parancsok tárolására szolgál
+        int vegossz = 0;//Végösszeg tárolására szolgál
+        int vendegID = 1;//jelenlegi egyetlen vendeg ID-ja
         public Vendeg()
         {
             InitializeComponent();
         }
 
+        //Ablakváltás vissza a főoldalra
         private void KiszolgaloMegnyit(object sender, RoutedEventArgs e)
         {
             var main = new MainWindow();
@@ -63,6 +64,12 @@ namespace QuickServe
             Application.Current.Shutdown();
         }
 
+
+        /*
+         Az alábbi osztályok a különböző termékekhez tartozó rendelés gombokat kezelik.
+        Minden gombhoz tartozik egy ár label. Ez a label tartalmazza az árat, amelyet a végösszeghez hozzáadunk.
+        Meghívja a Rendeles fuggvényt (erről később lesz részletes leírás)
+         */
         private void btUjrendeles1(object sender, RoutedEventArgs e)
         {
             string? ar = lbHamburgerAr.Content.ToString();
@@ -91,7 +98,11 @@ namespace QuickServe
         }
 
         private void btRendelesLead(object sender, RoutedEventArgs e)
-        {
+        {/*
+          Ellemőrzi, hogy van-e kiválasztott item a rendelésben.
+            ha igen akkor meghívja az AdatbázisKapcsolat függvényt, amely az adatbázisba való feltöltést végzi.
+            Értesíti a felhasználót.
+          */
             String rendelesString = "";
             foreach (var item in lbRendelesAdatai.Items)
             {
@@ -114,13 +125,18 @@ namespace QuickServe
 
         }
         private void Rendeles(string nev, string arS)
-        {
+        {/*
+          Integerré alakítja a kapott stringet, majd hozzáfűzi az SQL parancshoz az adott termék rendelésének hozzáadó parancsát.
+          */
             int ar= int.Parse(arS);
             rendelesSQL+= $" INSERT INTO Rendeles (v_ID, v_Etel, v_Etelar, v_Allapot) VALUES (1,'{nev}', {ar}, 1);";
         }
 
         private void AdatbázisKapcsolat()
-        {
+        {/*
+          Az alábbi osztály végzi az adatbázisba való feltöltést.
+            Ehhez az összefűzött stringet hasznáűlja, amely tartalmazza az összes rendelés Insert parancsát ';'-vel elválasztva.
+          */
             MySql.Data.MySqlClient.MySqlConnection conn;
             string connect;
             connect = "server=api.uniassist.hu;uid=QuickServe;pwd=Csütörtök8;database=QuickServe";
@@ -141,6 +157,10 @@ namespace QuickServe
 
         private void NemImplementáltFunkció(object sender, RoutedEventArgs e)
         {
+            /*
+            Placeholder funkció, amelyet azok a gombok hívnak meg amelyeket nem sikerült befejezni.
+            */
+          
             MessageBox.Show("Ez a funkció jelenleg nem elérhető", "Nem implementált funkció", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
