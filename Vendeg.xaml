@@ -34,7 +34,7 @@
         <Menu DockPanel.Dock="Top" Background="#FF6D6D6D">
            <!--Beállítások menü-->
             <MenuItem Header="Beállítások">
-                <MenuItem Header="Asztalbeállítás">
+                <MenuItem Header="Asztalbeállítás" >
                     <MenuItem Header="1. asztal" IsCheckable="True" IsChecked="True"/>
                     <MenuItem Header="2. asztal" IsCheckable="True" IsEnabled="False"/>
                     <MenuItem Header="3. asztal" IsCheckable="True" IsEnabled="False"/>
