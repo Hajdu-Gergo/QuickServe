@@ -40,7 +40,7 @@
                     <MenuItem Header="3. asztal" IsCheckable="True" IsEnabled="False"/>
                     <MenuItem Header="4. asztal" IsCheckable="True" IsEnabled="False"/>
                 </MenuItem>
-                <MenuItem Header="Felhasználóbeállítások" IsEnabled="False"/>
+                <MenuItem Header="Felhasználóbeállítások" Click="FelhasznaloBeallitMegnyit"/>
                 <MenuItem Header="Adatbázisteszt" IsEnabled="False"/>
             </MenuItem>
             

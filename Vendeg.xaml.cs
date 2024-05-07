@@ -163,5 +163,12 @@ namespace QuickServe
           
             MessageBox.Show("Ez a funkció jelenleg nem elérhető", "Nem implementált funkció", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        private void FelhasznaloBeallitMegnyit(object sender, RoutedEventArgs e)
+        {
+            var beallitasok = new FelhasznaloModosit("");
+            this.Hide();
+            beallitasok.Show();
+        }
     }
 }
