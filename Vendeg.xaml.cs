@@ -166,7 +166,7 @@ namespace QuickServe
 
         private void FelhasznaloBeallitMegnyit(object sender, RoutedEventArgs e)
         {
-            var beallitasok = new FelhasznaloModosit("");
+            var beallitasok = new FelhasznaloModosit("teszt@email.com");
             this.Hide();
             beallitasok.Show();
         }

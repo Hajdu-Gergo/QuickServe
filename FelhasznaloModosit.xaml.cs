@@ -79,7 +79,6 @@ namespace QuickServe
                 cmd.Parameters.AddWithValue("@Email", Email);
                 cmd.Parameters.AddWithValue("@Nev", Név);
                 cmd.Parameters.AddWithValue("@Asztalszam", Asztalszám);
-
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("A beállítások mentve!", "Siker", MessageBoxButton.OK, MessageBoxImage.Information);

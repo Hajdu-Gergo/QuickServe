@@ -58,7 +58,7 @@
             <TextBlock Text="Asztalszám:" 
                        FontWeight="Bold" 
                        Margin="10,10,10,0"/>
-            <TextBox Text="{Binding Asztalszám}" 
+            <ComboBox Text="{Binding Asztalszám}" 
                      Margin="10" 
                      Background="#FFF9F9F9"/>
 
