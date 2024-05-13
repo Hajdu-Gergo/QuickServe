@@ -42,7 +42,7 @@ namespace QuickServe
 {
     public partial class MainWindow : Window
     {
-        const string connect = "server=api.uniassist.hu;uid=QuickServe;pwd=Csütörtök8;database=QuickServe";
+        const string connect = "server=localhost;uid=root;database=QuickServe";
         public MainWindow()
         {
             InitializeComponent();

@@ -139,7 +139,7 @@ namespace QuickServe
           */
             MySql.Data.MySqlClient.MySqlConnection conn;
             string connect;
-            connect = "server=api.uniassist.hu;uid=QuickServe;pwd=Csütörtök8;database=QuickServe";
+            connect = "server=localhost;uid=root;database=QuickServe";
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
